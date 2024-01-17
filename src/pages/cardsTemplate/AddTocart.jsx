@@ -99,6 +99,7 @@ import { DollarOutlined } from '@ant-design/icons';
 import { SmileOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, addToCart, decreaseCart, getTotals, clearCart } from '@/redux/card/cartSlices';
+import Navbar from '../../apps/Header/Navbar'
 import './table.css'
 const AddTocart = () => {
   const cart = useSelector((state) => state.cart);
@@ -137,6 +138,7 @@ useEffect(() => {
 const [loading, setLoading] = useState(false);
   return (
     <>
+    {/* <Navbar/> */}
       <div className="cart-container">
         <h2>Shopping Cart</h2>
         {cart.cartItems.length === 0 ? (
@@ -250,6 +252,7 @@ const [loading, setLoading] = useState(false);
         style={{textAlign:"center"}}
         open={open}
         width={650}
+        onCancel={()=>setOpen(false)}
         footer={[
           <Button key="back" onClick={() => setOpen(false)}>
             Cancel
@@ -317,9 +320,9 @@ const [loading, setLoading] = useState(false);
       <Input />
     </Form.Item>
     <Form.Item label="Address">
-          <TextArea rows={4} />
+          <TextArea rows={2} />
         </Form.Item>
-        <Form.Item
+        {/* <Form.Item
       label="Product List"
       // name="amount"
       
@@ -331,23 +334,13 @@ const [loading, setLoading] = useState(false);
                   <p>{cartItem.cartQuantity}</p>
                   </div>
                 ))}
-    </Form.Item>
+    </Form.Item> */}
     <Form.Item
       label="Total Amount"
       name="amount"
       
     >
       <Input  suffix={<DollarOutlined />} disabled={true} />
-    </Form.Item>
-    <Form.Item
-      name="remember"
-      valuePropName="checked"
-      wrapperCol={{
-        offset: 8,
-        span: 16,
-      }}
-    >
-      <Checkbox checked={true}>Remember me</Checkbox>
     </Form.Item>
     {/* <Form.Item
       wrapperCol={{

@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { RocketOutlined,ShoppingCartOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import useLanguage from '@/locale/useLanguage';
-import { getTotals } from '@/redux/card/cartSlices';
+
 
 export default function UpgradeButton() {
   const { cartTotalQuantity ,cart} = useSelector((state) => state.cart);
