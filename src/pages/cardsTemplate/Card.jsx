@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Row, Col, Typography, Divider, notification, Space, Skeleton } from 'antd';
 import useLanguage from '@/locale/useLanguage';
-import HeaderContent from '@/apps/Header/HeaderContainer';
+import NavBar from '@/apps/Header/Navbar';
 import Swiper from '@/pages/cardsTemplate/Swiper';
 import cardDatas from './Carddatas';
 import FooterContainer from '@/apps/Footer/FooterContainer';
@@ -44,7 +44,8 @@ const card = () => {
     <>
       <section >
         {/* {contextHolder} */}
-        <HeaderContent />
+
+        <NavBar/>
         <Swiper />
 
         <div style={{ padding: '0px 20px' }}>
