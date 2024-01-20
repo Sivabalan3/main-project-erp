@@ -41,7 +41,9 @@ const languages = [
   { icon: '🇺🇦 ', label: 'Ukrainian', value: 'uk_ua' },
   { icon: '🇵🇰 ', label: 'Urdu', value: 'ur_pk', isRtl: true },
   { icon: '🇻🇳 ', label: 'Vietnamese', value: 'vi_vn' },
-  { icon:'ta',label: 'Tamil', value: 'ta_in' }
+  { icon: '🇮🇳 ',label: 'Tamil', value: 'ta_in' },
+  { icon: '🇮🇳 ',label: 'Malayalam', value: 'ml_in' },
+  { icon: '🇮🇳 ',label: 'Telugu', value: 'tl_in' }
 ];
 
 export default languages;

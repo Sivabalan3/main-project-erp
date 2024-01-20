@@ -92,9 +92,9 @@
 // )
 // }
 // export default AddTocart;
-import React, { useEffect ,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
-import { Button, Tooltip,Result ,Modal, Form, Input,Checkbox} from 'antd';
+import { Button, Tooltip, Result, Modal, Form, Input, Checkbox } from 'antd';
 import { DollarOutlined } from '@ant-design/icons';
 import { SmileOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from "react-redux";
@@ -130,24 +130,24 @@ const AddTocart = () => {
   const { TextArea } = Input;
   const [form] = Form.useForm(); // Create a form instance
 
-useEffect(() => {
-  form.setFieldsValue({
-    amount: cart.cartTotalAmount, // Update the 'amount' field value
-  });
-}, [cart.cartTotalAmount, form]);
-const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    form.setFieldsValue({
+      amount: cart.cartTotalAmount, // Update the 'amount' field value
+    });
+  }, [cart.cartTotalAmount, form]);
+  const [loading, setLoading] = useState(false);
   return (
     <>
-    {/* <Navbar/> */}
+      {/* <Navbar/> */}
       <div className="cart-container">
         <h2>Shopping Cart</h2>
         {cart.cartItems.length === 0 ? (
           <div className="cart-empty">
-           
+
             <Result
               icon={<SmileOutlined />}
               title="Your cart is currently empty!"
-              
+
             />
             <div className="start-shopping">
               <Link to="/">
@@ -217,12 +217,21 @@ const [loading, setLoading] = useState(false);
                 Clear Cart
               </Button>
               <div className="cart-checkout">
+
                 <div className="subtotal">
                   <span>Subtotal</span>
-                  <span className="amount">${cart.cartTotalAmount}</span>
+                  <span className="amount">$ {cart.cartTotalAmount}</span>
+                </div>
+                <div className="subtotal">
+                  <span>Tax</span>
+                  <span className="amount">$ {cart.cartTaxAmount}</span>
+                </div>
+                <div className="subtotal">
+                  <span>Grand Total</span>
+                  <span className="amount">$ {cart.cartTotalAmount + cart.cartTaxAmount}</span>
                 </div>
                 <p>Taxes and shipping calculated at checkout</p>
-                <button  onClick={() => setOpen(true)}>Check out</button>
+                <button onClick={() => setOpen(true)}>Check out</button>
                 <div className="continue-shopping">
                   <Link to="/">
                     <svg
@@ -249,80 +258,104 @@ const [loading, setLoading] = useState(false);
       <Modal
         title="Shopping Cart"
         centered
-        style={{textAlign:"center"}}
+        style={{ textAlign: "center" }}
         open={open}
-        width={650}
-        onCancel={()=>setOpen(false)}
+        width={850}
+        onCancel={() => setOpen(false)}
         footer={[
           <Button key="back" onClick={() => setOpen(false)}>
             Cancel
           </Button>,
-          <Button key="submit" type="primary"   onClick={() => setOpen(false)}>
-            Submit
-          </Button>,
-          
+          // <Button key="submit" type="primary" onClick={() => setOpen(false)}>
+          //   Submit
+          // </Button>,
+
         ]}
       >
-        <h3 style={{textAlign:"center"}}>Confirm Payment</h3>
+        <h3 style={{ textAlign: "center" }}>Confirm Payment</h3>
         <Form
-   form={form}
-   name="myForm"
-    labelCol={{
-      span: 8,
-    }}
-    wrapperCol={{
-      span: 16,
-    }}
-    style={{
-      maxWidth: 600,
-    }}
-    // initialValues={{
-    //   remember: true,
-    // }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    autoComplete="off"
-  >
-    <Form.Item
-      label="Name"
-      name="username"
-      rules={[
-        {
-          required: true,
-          message: 'Please input your name!',
-        },
-      ]}
-    >
-      <Input />
-    </Form.Item>
-    <Form.Item
-      label="Phone 1"
-      name="phone1"
-      rules={[
-        {
-          required: true,
-          message: 'Please enter Phone nuber',
-        },
-      ]}
-    >
-      <Input />
-    </Form.Item>
-    <Form.Item
-      label="Phone 2"
-      name="phone2"
-      rules={[
-        {
-          required: true,
-          message: 'Please enter Phone number',
-        },
-      ]}
-    >
-      <Input />
-    </Form.Item>
-    <Form.Item label="Address">
-          <TextArea rows={2} />
-        </Form.Item>
-        {/* <Form.Item
+          form={form}
+          name="myForm"
+          labelCol={{
+            span: 8,
+          }}
+          wrapperCol={{
+            span: 16,
+          }}
+          style={{
+          Width: 850,height:"40vh",marginTop:"40px",}}
+          
+          // initialValues={{
+          //   remember: true,
+          // }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+          
+        >
+           <div style={{display:"flex",marginBottom:"20px"}}>
+          <Form.Item
+          style={{width:"50%"}}
+            label="Name"
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your name!',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+           style={{width:"50%"}}
+            label="Phone 1"
+            name="phone1"
+            rules={[
+              {
+                required: true,
+                message: 'Please enter Phone nuber1',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          </div>
+          <div style={{display:"flex",marginBottom:"20px"}}>
+          <Form.Item
+           style={{width:"50%"}}
+            label="Phone 2"
+            name="phone2"
+            rules={[
+              {
+                required: true,
+                message: 'Please enter Phone number2',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        
+         
+          <Form.Item
+           style={{width:"50%"}}
+            label="Gmail"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: 'Please enter Gmail',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          </div>
+          <div style={{display:"flex",marginBottom:"20px"}}>
+          <Form.Item label="Address"  style={{width:"50%"}}>
+            <TextArea rows={2} />
+          </Form.Item>
+          {/* <Form.Item
       label="Product List"
       // name="amount"
       
@@ -335,24 +368,26 @@ const [loading, setLoading] = useState(false);
                   </div>
                 ))}
     </Form.Item> */}
-    <Form.Item
-      label="Total Amount"
-      name="amount"
-      
-    >
-      <Input  suffix={<DollarOutlined />} disabled={true} />
-    </Form.Item>
-    {/* <Form.Item
+          <Form.Item
+           style={{width:"50%"}}
+            label="Total Amount"
+            name="amount"
+
+          >
+            <Input suffix={<DollarOutlined />} disabled={true} />
+          </Form.Item>
+       </div>
+          <Form.Item
       wrapperCol={{
         offset: 8,
         span: 16,
       }}
     >
-      <Button type="primary" htmlType="submit">
+      <Button type="primary" htmlType="submit" style={{width:"150px",}}>
         Submit
       </Button>
-    </Form.Item> */}
-  </Form>
+    </Form.Item>
+        </Form>
       </Modal>
     </>
   )
