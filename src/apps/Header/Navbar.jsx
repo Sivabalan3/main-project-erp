@@ -90,7 +90,13 @@ const ResponsiveNav = () => {
               <Link  className="nav-link mx-2 text-uppercase" to="/addtocart"><UpgradeButton/></ Link>
             </li>
             <li className="nav-item sm-none">
-              <div className="nav-link mx-2 text-uppercase" href="#"><SelectLanguage/></div>
+              <div className="nav-link mx-2 text-uppercase"><SelectLanguage/></div>
+            </li>
+            <li className="nav-item sm-none mt-2">
+              <Link className="nav-link mx-2 text-uppercase" to="/login">Login</Link>
+            </li>
+            <li className="nav-item sm-none mt-2">
+              <Link className="nav-link mx-2 text-uppercase" to="/register">Register</Link>
             </li>
           </ul>
         </div>

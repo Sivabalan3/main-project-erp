@@ -81,7 +81,7 @@ function Sidebar({ collapsible, isMobile = false }) {
       label: <Link to={'/offer'}>{translate('offer')}</Link>,
     },
 
-    // { key: 'order', icon: <ShopOutlined />, label: <Link to={'/'}>Lead</Link>},
+    { key: 'order', icon: <ShopOutlined />, label: <Link to={'/order'}>{translate('Order')}</Link>},
     // { key: 'inventory', icon: <InboxOutlined />, label: <Link to={'/'}>Lead</Link> Inventory },
 
     {

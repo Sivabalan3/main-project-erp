@@ -4,6 +4,7 @@ import zhCN from 'antd/es/locale/zh_CN';
 import roRO from 'antd/es/locale/ro_RO';
 import itIT from 'antd/es/locale/it_IT';
 import hiIN from 'antd/es/locale/hi_IN';
+import taIl from 'antd/es/locale/ta_IN'; //  Tamil language
 import idID from 'antd/es/locale/id_ID';
 import thTH from 'antd/es/locale/th_TH';
 import esES from 'antd/es/locale/es_ES';
@@ -39,7 +40,8 @@ import ltLT from 'antd/es/locale/lt_LT';
 import caES from 'antd/es/locale/ca_ES';
 import faIR from 'antd/es/locale/fa_IR';
 import srRS from 'antd/es/locale/sr_RS';
-
+import malyam from 'antd/es/locale/ml_IN'
+import telegu from 'antd/es/locale/kn_IN'
 const antdLocale = {
   zh_cn: zhCN,
   fr_fr: frFR,
@@ -47,6 +49,9 @@ const antdLocale = {
   ro_ro: roRO,
   it_it: itIT,
   hi_in: hiIN,
+  ma_in:malyam,
+  tl_in:telegu,
+  ta_in:taIl,
   id_id: idID,
   th_th: thTH,
   es_es: esES,

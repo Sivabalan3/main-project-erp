@@ -10,6 +10,7 @@ import { addToCart } from '@/redux/card/cartSlices';
 import { useGetAllProductsQuery } from '@/redux/productApilink/productsApi';
 import { useSelector } from 'react-redux';
 import { getTotals } from '@/redux/card/cartSlices';
+import './cardbody.css'
 const { Meta } = Card;
 const card = () => {
   const [loading, setLoading] = useState(true);
@@ -50,7 +51,7 @@ const card = () => {
 
         <div style={{ padding: '0px 20px' }}>
     
-          <Title style={titles} level={2}>{translate('natural soaps')} </Title>
+          <h1 className='header' >{translate('natural soaps')} </h1>
          
           <Row style={{ overflowx: 'hidden', width: '100%', marginTop: '30px' }}>
             {data?.map((product) => (

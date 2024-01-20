@@ -7,6 +7,7 @@ const initialState = {
         ? JSON.parse(localStorage.getItem("cartItems")) : [],
     cartTotalQuantity: 0,
     cartTotalAmount: 0,
+    cartTaxAmount:0,
 }
 const cartSlices = createSlice({
     name: "cart",
@@ -104,6 +105,8 @@ const cartSlices = createSlice({
             total = parseFloat(total.toFixed(2));
             state.cartTotalQuantity = quantity;
             state.cartTotalAmount = total;
+            // add this line to calculate the tax amount
+            state.cartTaxAmount = total * 0.1;
           },
           clearCart(state, action) {
             state.cartItems = [];

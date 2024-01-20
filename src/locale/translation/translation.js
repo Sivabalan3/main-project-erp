@@ -5,6 +5,7 @@ import ar_eg from './ar_eg';
 import it_it from './it_it';
 import ro_ro from './ro_ro';
 import hi_in from './hi_in';
+import ta_in from './ta_in';
 import id_id from './id_id';
 import th_th from './th_th';
 import es_es from './es_es';
@@ -40,7 +41,8 @@ import lt_lt from './lt_lt';
 import ca_es from './ca_es';
 import fa_ir from './fa_ir';
 import sr_rs from './sr_rs';
-
+import ml_in from './malai_yalam';
+import tl_in from './tl_in'
 const languages = {
   ar_eg,
   en_us,
@@ -49,6 +51,9 @@ const languages = {
   it_it,
   ro_ro,
   hi_in,
+  ta_in,
+  ml_in,
+  tl_in,
   id_id,
   th_th,
   es_es,
