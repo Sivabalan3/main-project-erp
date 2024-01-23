@@ -11,6 +11,7 @@ import { useGetAllProductsQuery } from '@/redux/productApilink/productsApi';
 import { useSelector } from 'react-redux';
 import { getTotals } from '@/redux/card/cartSlices';
 import './cardbody.css'
+
 const { Meta } = Card;
 const card = () => {
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,7 @@ const card = () => {
 
     return () => clearTimeout(timer);
   }, []);
-  const { cartTotalQuantity ,cart} = useSelector((state) => state.cart);
+  const { cartTotalQuantity, cart } = useSelector((state) => state.cart);
   useEffect(() => {
     dispatch(getTotals());
   });
@@ -46,15 +47,15 @@ const card = () => {
       <section >
         {/* {contextHolder} */}
 
-        <NavBar/>
+        <NavBar />
         <Swiper />
 
         <div style={{ padding: '0px 20px' }}>
-    
-          <h1 className='header' >{translate('natural soaps')} </h1>
-         
+
+          <h3 className='header'>{translate('Natural Soaps')}</h3>
+
           <Row style={{ overflowx: 'hidden', width: '100%', marginTop: '30px' }}>
-            {data?.map((product) => (
+            {data?.slice(0, 4).map((product) => (
               <Col key={product.id} xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 12 }} lg={{ span: 6 }} style={{
                 padding: "0px 10px"
               }}>
@@ -63,7 +64,10 @@ const card = () => {
                   hoverable
                   cover={<img alt={product.name} src={product.img} />}
                 >
-                  <Meta title={translate('natural soaps')} description={translate("soap_contents")} />
+                  <h6 className='price'>{translate('Price')}: ₹ {product.price}</h6>
+                  <h6 style={{color:"#9834eb"}}>{translate(product.name)}</h6>
+                  <Meta description={translate("soap_contents")} />
+
                   <Button type="primary" block typeof='button' style={button} onClick={() => handleADDToCart(product)}>
                     {translate('buy')}  +
                   </Button>
@@ -71,24 +75,23 @@ const card = () => {
               </Col>
             ))}
           </Row>
-       <Title style={titles} level={2}>{translate('Natural Oils')}</Title>
+          <h3 className='header'>{translate('Natural Oils')}</h3>
 
           <Row style={{ overflowx: 'hidden', width: '100%', marginTop: '30px' }}>
-            {cardDatas.oilImages.map((oil,index) => (
-              <Col key={index} xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 12 }} lg={{ span: 6 }} style={{
-                padding: "0px 10px"
-              }} >
-                <Card
-                  key={oil.id}
+            {data?.slice(4, 8).map((product) => (
+              <Col key={product.id} xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 12 }} lg={{ span: 6 }} style={{
+                padding: "0px 10px"}}>
+                <Skeleton loading={loading} avatar active> <Card
+                  key={product.id}
                   hoverable
-                  cover={<img alt="example" src={oil.imgs} />}
-                >
-                  <Meta title={translate('natural oils')} description={translate("soap_contents")} />
-                  <Button type="primary" style={button}>
-                    Buy+
+                  cover={<img alt={product.name} src={product.img} />}>
+                  <h6 className='price'>{translate('Price')}: ₹ {product.price}</h6>
+                  <h6 style={{color:"#9834eb"}}>{translate(product.name)}</h6>
+                  <Meta description={translate("soap_contents")} />
+                  <Button type="primary" block typeof='button' style={button} onClick={() => handleADDToCart(product)}>
+                    {translate('buy')}  +
                   </Button>
-
-                </Card>
+                </Card></Skeleton>
               </Col>
             ))}
           </Row>

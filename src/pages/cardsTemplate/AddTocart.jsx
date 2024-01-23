@@ -101,10 +101,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, addToCart, decreaseCart, getTotals, clearCart } from '@/redux/card/cartSlices';
 import Navbar from '../../apps/Header/Navbar'
 import './table.css'
+import useLanguage from '@/locale/useLanguage';
+
 const AddTocart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const translate = useLanguage();
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
@@ -132,15 +135,15 @@ const AddTocart = () => {
 
   useEffect(() => {
     form.setFieldsValue({
-      amount: cart.cartTotalAmount, // Update the 'amount' field value
+      amount: cart.cartTotalAmount + cart.cartTaxAmount, // Update the 'amount' field value
     });
   }, [cart.cartTotalAmount, form]);
   const [loading, setLoading] = useState(false);
   return (
     <>
-      {/* <Navbar/> */}
+      <Navbar/>
       <div className="cart-container">
-        <h2>Shopping Cart</h2>
+        <h2>{translate('Shopping Cart')}</h2>
         {cart.cartItems.length === 0 ? (
           <div className="cart-empty">
 
@@ -171,10 +174,10 @@ const AddTocart = () => {
         ) : (
           <div>
             <div className="titles">
-              <h3 className="product-title">Product</h3>
-              <h3 className="price">Price</h3>
-              <h3 className="quantity">Quantity</h3>
-              <h3 className="total">Total</h3>
+              <h3 className="product-title">{translate('Product')}</h3>
+              <h3 className="price">{translate('Price')}</h3>
+              <h3 className="quantity">{translate('Quantity')}</h3>
+              <h3 className="total">{translate('Total')}</h3>
             </div>
             <div className="cart-items">
               {cart.cartItems &&
@@ -183,19 +186,19 @@ const AddTocart = () => {
                     <div className="cart-product">
                       <img src={cartItem.img} alt={cartItem.name} />
                       <div>
-                        <h3>{cartItem.name}</h3>
+                        <h3>{translate(cartItem.name)}</h3>
                         {/* <p>{cartItem.desc}</p> */}
                         {/* <button  >
                         Remove
                       </button> */}
                         <Tooltip title="Remove" color={'red'}>
                           <Button danger size={'small'} onClick={() => handleRemoveFromCart(cartItem)}>
-                            Remove
+                            {translate('Remove')}
                           </Button>
                         </Tooltip>
                       </div>
                     </div>
-                    <div className="cart-product-price">${cartItem.price}</div>
+                    <div className="cart-product-price">₹{cartItem.price}</div>
                     <div className="cart-product-quantity">
                       <button onClick={() => handleDecreaseCart(cartItem)}>
                         -
@@ -204,7 +207,7 @@ const AddTocart = () => {
                       <button onClick={() => handleAddToCart(cartItem)}>+</button>
                     </div>
                     <div className="cart-product-total-price">
-                      ${cartItem.price * cartItem.cartQuantity}
+                      ₹{cartItem.price * cartItem.cartQuantity}
                     </div>
                   </div>
                 ))}
@@ -214,24 +217,24 @@ const AddTocart = () => {
                 Clear Cart
               </button> */}
               <Button danger size={'large'} onClick={() => handleClearCart()}>
-                Clear Cart
+                {translate('Clear Cart')}
               </Button>
               <div className="cart-checkout">
 
                 <div className="subtotal">
-                  <span>Subtotal</span>
-                  <span className="amount">$ {cart.cartTotalAmount}</span>
+                  <span>{translate("Subtotal")}</span>
+                  <span className="amount">₹ {cart.cartTotalAmount}</span>
                 </div>
                 <div className="subtotal">
-                  <span>Tax</span>
-                  <span className="amount">$ {cart.cartTaxAmount}</span>
+                  <span>{translate('Tax')}</span>
+                  <span className="amount">₹ {cart.cartTaxAmount}</span>
                 </div>
                 <div className="subtotal">
-                  <span>Grand Total</span>
-                  <span className="amount">$ {cart.cartTotalAmount + cart.cartTaxAmount}</span>
+                  <span>{translate('Grand Total')}</span>
+                  <span className="amount">₹ {cart.cartTotalAmount + cart.cartTaxAmount}</span>
                 </div>
-                <p>Taxes and shipping calculated at checkout</p>
-                <button onClick={() => setOpen(true)}>Check out</button>
+                <p>{translate("Taxes and shipping calculated at checkout")}</p>
+                <button onClick={() => setOpen(true)}>{translate('Check out')}</button>
                 <div className="continue-shopping">
                   <Link to="/">
                     <svg
@@ -247,7 +250,7 @@ const AddTocart = () => {
                         d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                       />
                     </svg>
-                    <span>Continue Shopping</span>
+                    <span>{translate("Continue Shopping")}</span>
                   </Link>
                 </div>
               </div>

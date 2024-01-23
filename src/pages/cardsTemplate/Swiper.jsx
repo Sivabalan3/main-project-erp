@@ -9,19 +9,19 @@ import './swipestyle.css'
 
 export default function Swipers() {
   const swipelinks = [{
-    img: "https://tiimg.tistatic.com/fp/2/004/930/akathiya-turmeric-sandal-handmade-soap-503.jpg"
+    img: "https://m.media-amazon.com/images/I/81sbdlgNjNL._AC_UF1000,1000_QL80_.jpg"
   }, {
-    img: "https://5.imimg.com/data5/IR/RS/MY-7782064/akathiya-handmade-herbal-soap.jpg"
+    img: "https://i.pinimg.com/736x/11/ae/2d/11ae2d691b0bb1fa22fd082182b7588b.jpg"
   }, {
-    img: "https://5.imimg.com/data5/KF/GN/MY-7782064/akathiya-handmade-herbal-soap-500x500.jpg"
+    img: "https://tatvik.shop/cdn/shop/articles/CARRIER_OIL_WHITE_blog_1.png?v=1700648800&width=1100"
   }, {
-    img: "https://cdn.shopify.com/s/files/1/2395/7673/files/1_-_Coconut_Milk_Soap_Recipe-02_480x480.jpg?v=1685347131"
+    img: "https://static.vecteezy.com/system/resources/thumbnails/004/732/000/small_2x/body-wash-ad-with-leaf-and-flower-background-liquid-soap-products-made-from-natural-extracts-and-fragrant-flowers-realistic-eps-file-vector.jpg"
   }, {
-    img: "https://www.drsquatch.com/cdn/shop/articles/shutterstock_216984226_coconut1-e1430940754723.jpg?v=1629088736"
+    img: "https://b2177822.smushcdn.com/2177822/wp-content/uploads/2020/01/Sandal-Soap-75g.png?lossy=1&strip=1&webp=1"
   }, {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJsIrt3AHKHhbjuDVFQekpsJJ3smvilligR6rtG7NqpRbwPSBplHBMBnWGC0G8Ti7xSBw&usqp=CAU"
+    img: "https://myayurmanthra.com/wp-content/uploads/2020/07/Aloe-vera.png"
   }, {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5zpoiSGbdNG9NE2gKHz47ZmSkyC8eoMqmv-zZFe0ZBhdLN5CMrPDHbEtWRPkOzG8W9xU&usqp=CAU"
+    img: "https://cdn.shopify.com/s/files/1/0551/4575/8907/files/Eucalyptus_essential_oil_for_car_freshness_600x600.png?v=1692599035"
   }
   ]
   return (

@@ -538,9 +538,28 @@ const lang = {
     date_format: "தேதி வடிவம்",
     server_url: "சர்வர் URL",
 
-    natural_soaps: "Natural Soaps",
-    buy: "Buy",
-    natural_oils:"Natural Oils",
-    soap_contents: "ஒரு பொத்தான் என்பது ஒரு செயல்பாடு (அல்லது தொடர்ச்சியான செயல்பாடுகள்). ஒரு பொத்தானைக் கிளிக் செய்வது தொடர்புடைய வணிக தர்க்கத்தைத் தூண்டும்.",
+    buy: "விலைக்கு வாங்கு",
+    shopping_cart:"வணிக கூடை",
+    natural_oils:"இயற்கை எண்ணெய்கள்",
+    natural_soaps:"இயற்கை சோப்புகள்",
+    soap_contents: "ஆரஞ்சு மற்றும் லெமன்கிராஸ் ஃபேஸ் வாஷ் தீங்கு விளைவிக்கும் இரசாயனங்கள் இல்லாதது. பிரத்யேகமாக வடிவமைக்கப்பட்ட ஃபேஸ் வாஷ் உங்கள் சருமத்தை உண்மையிலேயே சுத்தப்படுத்துகிறது, நச்சு நீக்குகிறது மற்றும் மெருகூட்டுகிறது.",
+    herbel_oil:"மூலிகை எண்ணெய்",
+    clear_cart:"தெளிவான வண்டி",
+    sub_total:"கூட்டுத்தொகை",
+    grand_total:"கிராண்ட் டோட்டல்",
+    taxes_and_shipping_calculated_at_checkout:"செக் அவுட்டின் போது கணக்கிடப்படும் வரிகள் மற்றும் ஷிப்பிங்",
+    continue_shopping:"ஷாப்பிங் தொடரவும்",
+    check_out:"சரிபார்",
+    continue_shopping:"ஷாப்பிங் தொடரவும்",
+    natural_almond_soap:"இயற்கை பாதாம் சோப்பு",
+    papaya_natural_soap:"பப்பாளி இயற்கை சோப்பு",
+    papaya_natural_sandwood:"பப்பாளி இயற்கை சந்தனம்",
+    papaya_natural_vitamin_c:"பப்பாளி இயற்கை வைட்டமின் சி",
+    tulasi_face_wash:"துளசி ஃபேஸ் வாஷ்",
+    honey_facial_massage:"தேன் முக மசாஜ்",
+    mint_facial_wash:"புதினா ஃபேஷியல் வாஷ்",
+    rose_fasce_wash:"ரோஸ் ஃபேஸ் வாஷ்",
+
+
 }
 export default lang

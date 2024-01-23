@@ -540,9 +540,13 @@ server_url: "Server Url",
 
 
 // SOAP CONTENTS
-natural_soaps:"Natural Soaps",
+
+natural_soaps:"Natural soaps",
 buy:"Buy",
-soap_contents:"A button means an operation (or a series of operations). Clicking a button will trigger corresponding business logic.",
-natural_oils:"Natural Oils"
+soap_contents:"Orange & Lemongrass Face Wash is free from harmful chemicals. A specially formulated face wash that truly cleanses, detoxify, and polishes your skin.",
+natural_oils:"Natural Oils",
+grand_total:"Grand Total",
+shopping_cart:"shopping cart",
+taxes_and_shipping_calculated_at_checkout:" Taxes And Shipping Calculated At Checkout"
 }
  export default lang
