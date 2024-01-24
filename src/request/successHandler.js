@@ -10,7 +10,7 @@ const successHandler = (response, options = { notifyOnSuccess: false, notifyOnFa
 
     if (options.notifyOnSuccess) {
       notification.config({
-        duration: 2,
+        duration: 5,
         maxCount: 2,
       });
       notification.success({
