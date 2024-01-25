@@ -65,7 +65,7 @@ const cartSlices = createSlice({
 
             if (state.cartItems[itemIndex].cartQuantity > 1) {
                 state.cartItems[itemIndex].cartQuantity -= 1;
-                notification.success({
+                notification.error({
                     message: 'DELETED',
                     description: `Decreased${action.payload.name}cart Quntity.`,
                     duration: 2,

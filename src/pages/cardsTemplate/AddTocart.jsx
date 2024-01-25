@@ -95,13 +95,13 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { Button, Tooltip, Result, Modal, Form, Input, Checkbox } from 'antd';
-import { DollarOutlined } from '@ant-design/icons';
 import { SmileOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, addToCart, decreaseCart, getTotals, clearCart } from '@/redux/card/cartSlices';
 import Navbar from '../../apps/Header/Navbar'
 import './table.css'
 import useLanguage from '@/locale/useLanguage';
+import CardConfirmSteps from './CardConfirmSteps';
 
 const AddTocart = () => {
   const cart = useSelector((state) => state.cart);
@@ -124,21 +124,6 @@ const AddTocart = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-  const { TextArea } = Input;
-  const [form] = Form.useForm(); // Create a form instance
-
-  useEffect(() => {
-    form.setFieldsValue({
-      amount: cart.cartTotalAmount + cart.cartTaxAmount, // Update the 'amount' field value
-    });
-  }, [cart.cartTotalAmount, form]);
-  const [loading, setLoading] = useState(false);
   return (
     <>
       <Navbar/>
@@ -261,9 +246,10 @@ const AddTocart = () => {
       <Modal
         title="Shopping Cart"
         centered
-        style={{ textAlign: "center" }}
+        style={{ textAlign: "center",marginTop:"40px"}}
         open={open}
         width={850}
+       
         onCancel={() => setOpen(false)}
         footer={[
           <Button key="back" onClick={() => setOpen(false)}>
@@ -275,122 +261,8 @@ const AddTocart = () => {
 
         ]}
       >
-        <h3 style={{ textAlign: "center" }}>Confirm Payment</h3>
-        <Form
-          form={form}
-          name="myForm"
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-          style={{
-          Width: 850,height:"40vh",marginTop:"40px",}}
-          
-          // initialValues={{
-          //   remember: true,
-          // }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-          
-        >
-           <div style={{display:"flex",marginBottom:"20px"}}>
-          <Form.Item
-          style={{width:"50%"}}
-            label="Name"
-            name="username"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your name!',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-           style={{width:"50%"}}
-            label="Phone 1"
-            name="phone1"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter Phone nuber1',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          </div>
-          <div style={{display:"flex",marginBottom:"20px"}}>
-          <Form.Item
-           style={{width:"50%"}}
-            label="Phone 2"
-            name="phone2"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter Phone number2',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        
-         
-          <Form.Item
-           style={{width:"50%"}}
-            label="Gmail"
-            name="email"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter Gmail',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          </div>
-          <div style={{display:"flex",marginBottom:"20px"}}>
-          <Form.Item label="Address"  style={{width:"50%"}}>
-            <TextArea rows={2} />
-          </Form.Item>
-          {/* <Form.Item
-      label="Product List"
-      // name="amount"
-      
-    >
-      {cart.cartItems &&
-                cart.cartItems.map((cartItem) => (
-                  <div style={{display:"flex",color:'green'}}>
-                  <p>{`${cartItem.name } -  Quantity - `}</p>
-                  <p>{cartItem.cartQuantity}</p>
-                  </div>
-                ))}
-    </Form.Item> */}
-          <Form.Item
-           style={{width:"50%"}}
-            label="Total Amount"
-            name="amount"
-
-          >
-            <Input suffix={<DollarOutlined />} disabled={true} />
-          </Form.Item>
-       </div>
-          <Form.Item
-      wrapperCol={{
-        offset: 8,
-        span: 16,
-      }}
-    >
-      <Button type="primary" htmlType="submit" style={{width:"150px",}}>
-        Submit
-      </Button>
-    </Form.Item>
-        </Form>
+        <h3 style={{ textAlign: "center" }}>Confirm Order</h3>
+       <CardConfirmSteps/>
       </Modal>
     </>
   )
