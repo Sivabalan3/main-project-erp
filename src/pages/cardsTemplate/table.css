@@ -186,3 +186,15 @@
       margin-bottom: 2rem;
     }
   }
+
+
+  .ant-table-thead .ant-table-cell {
+    background-color: rgb(255, 255, 255) !important;
+    border: none !important;
+    border-radius: 30px !important;
+  }
+  .ant-table-thead .ant-table-cell { 
+    font-size: 14px;
+  color: rgb(37, 52, 215) !important;
+  
+  }
