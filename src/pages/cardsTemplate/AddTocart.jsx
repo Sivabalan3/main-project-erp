@@ -248,17 +248,13 @@ const AddTocart = () => {
         centered
         style={{ textAlign: "center",marginTop:"40px"}}
         open={open}
-        width={850}
-       
+        width={1024}
+       height={540}
         onCancel={() => setOpen(false)}
         footer={[
           <Button key="back" onClick={() => setOpen(false)}>
             Cancel
           </Button>,
-          // <Button key="submit" type="primary" onClick={() => setOpen(false)}>
-          //   Submit
-          // </Button>,
-
         ]}
       >
         <h3 style={{ textAlign: "center" }}>Confirm Order</h3>

@@ -189,9 +189,9 @@
 
 
   .ant-table-thead .ant-table-cell {
-    background-color: rgb(255, 255, 255) !important;
-    border: none !important;
-    border-radius: 30px !important;
+    background-color: rgb(229, 244, 245) !important;
+    /* border: none !important; */
+    /* border-radius: 30px !important; */
   }
   .ant-table-thead .ant-table-cell { 
     font-size: 14px;
