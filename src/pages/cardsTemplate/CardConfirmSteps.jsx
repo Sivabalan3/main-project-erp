@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, message, Steps, theme } from 'antd';
 import CardOrder from './CardOrder';
 import DownloadReceipt from './DownloadReceipt';
+import { printAndDownload } from './DownloadReceipt';
 
 const steps = [
   {
@@ -31,14 +32,16 @@ const  CardConfirmSteps = () => {
     title: item.title,
   }));
   const contentStyle = {
-    lineHeight: '260px',
+    // lineHeight: '60px',
     textAlign: 'center',
     color: token.colorTextTertiary,
-    backgroundColor: token.colorFillAlter,
+    // backgroundColor: token.colorFillAlter,
     borderRadius: token.borderRadiusLG,
     border: `1px dashed ${token.colorBorder}`,
     marginTop: 16,
-    height:"46vh"
+    height:"50vh",
+    overflow:'scroll'
+    
   };
   return (
     <>
@@ -55,7 +58,7 @@ const  CardConfirmSteps = () => {
           </Button>
         )}
         {current === steps.length - 1 && (
-          <Button type="primary" onClick={() => message.success('Processing complete!')}>
+          <Button type="primary" onClick={printAndDownload}>
             Done
           </Button>
         )}

@@ -36,8 +36,8 @@ const ResponsiveNav = () => {
             <span className="me-3"><i className="fa-solid fa-phone me-1 text-warning"></i> <strong>1-800-123-1234</strong></span>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-lg-block d-md-block-d-sm-block d-xs-none text-end">
-            <span className="me-3"><i className="fa-solid fa-truck text-muted me-1"></i><a className="text-muted" href="#">Shipping</a></span>
-            <span className="me-3"><i className="fa-solid fa-file  text-muted me-2"></i><a className="text-muted" href="#">Policy</a></span>
+            <span className="me-3"><i className="fa-solid fa-truck text-muted me-1"></i><a className="text-muted" href="/">Shipping</a></span>
+            <span className="me-3"><i className="fa-solid fa-file  text-muted me-2"></i><a className="text-muted" href="/">Policy</a></span>
           </div>
         </div>
       </div> */}
@@ -48,15 +48,15 @@ const ResponsiveNav = () => {
         <UpgradeButton/>
         </div>
 
-        <a className="navbar-brand" href="#"><i className="fa-solid fa-shop me-2"></i> <strong>SHOPING CART</strong></a>
-        <button onClick={showDrawer} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <a className="navbar-brand" href="/"><i className="fa-solid fa-shop me-2"></i> <strong>SHOPING CART</strong></a>
+        <button onClick={showDrawer} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="/navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
     
         <div className="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
           <div className="input-group">
             <span className="border-warning input-group-text bg-warning text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
-            <input type="text" className="form-control border-warning" style={{color:"#7a7a7a"}}/>
+            <input type="text" className="form-control border-warning" style={{color:"/7a7a7a"}}/>
             <button className="btn btn-warning text-white">Search</button>
           </div>
         </div>
@@ -64,7 +64,7 @@ const ResponsiveNav = () => {
           <div className="ms-auto d-none d-lg-block">
             <div className="input-group">
               <span className="border-warning input-group-text bg-warning text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
-              <input type="text" className="form-control border-warning" style={{color:"#7a7a7a"}}/>
+              <input type="text" className="form-control border-warning" style={{color:"/7a7a7a"}}/>
               <button className="btn btn-warning text-white">Search</button>
             </div>
           </div>
@@ -73,16 +73,16 @@ const ResponsiveNav = () => {
               <Link className="nav-link mx-2 text-uppercase active" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">Products</a>
+              <a className="nav-link mx-2 text-uppercase" href="/">Products</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">Catalog</a>
+              <a className="nav-link mx-2 text-uppercase" href="/">Catalog</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">About</a>
+              <a className="nav-link mx-2 text-uppercase" href="/">About</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">Services</a>
+              <a className="nav-link mx-2 text-uppercase" href="/">Services</a>
             </li>
           </ul>
           <ul className="navbar-nav ms-auto ">

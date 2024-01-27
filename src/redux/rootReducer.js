@@ -9,6 +9,7 @@ import { reducer as translateReducer } from './translate';
 import {reducer as cartReducer} from './card'
 import {reducer as productReducer} from './product'
 import {reducer as productsApi} from './productApilink'
+import {reducer as userorderformReducer} from './orderuserdetails'
 // Combine all reducers.
 
 const rootReducer = combineReducers({
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   cart:cartReducer,
   products:productReducer,
   productsApi:productsApi,
+  userorderformReducer: userorderformReducer
   //  [productsApi.reducerPath]:productsApi.reducer,
 },
 );
