@@ -94,20 +94,28 @@
 // export default AddTocart;
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
-import { Button, Tooltip, Result, Modal, Form, Input, Checkbox } from 'antd';
+import { Button, Tooltip, Result, Modal, Steps } from 'antd';
 import { SmileOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, addToCart, decreaseCart, getTotals, clearCart } from '@/redux/card/cartSlices';
 import Navbar from '../../apps/Header/Navbar'
 import './table.css'
 import useLanguage from '@/locale/useLanguage';
-import CardConfirmSteps from './CardConfirmSteps';
+import CardOrder from './CardOrder';
+import DownloadReceipt from './DownloadReceipt';
+import { printAndDownload } from './DownloadReceipt';
+import StripeForm from './StripeForm';
+import StripeForms from './StripeForm';
+
+const { Step } = Steps;
 
 const AddTocart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const translate = useLanguage();
+  const [current, setCurrent] = useState(0);
+
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
@@ -124,9 +132,29 @@ const AddTocart = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+  const next = () => {
+    setCurrent(current + 1);
+  };
+  const prev = () => {
+    setCurrent(current - 1);
+  };
+  const steps = [
+    {
+      title: 'Shipping',
+      content: <CardOrder setCurrent={setCurrent} current={current} />,
+    },
+    {
+      title: 'Payment',
+      content: <StripeForms />,
+    },
+    {
+      title: 'Confirm',
+      content: <DownloadReceipt />,
+    },
+  ];
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="cart-container">
         <h2>{translate('Shopping Cart')}</h2>
         {cart.cartItems.length === 0 ? (
@@ -246,19 +274,49 @@ const AddTocart = () => {
       <Modal
         title="Shopping Cart"
         centered
-        style={{ textAlign: "center",marginTop:"40px"}}
-        open={open}
+        style={{ textAlign: "center", marginTop: "40px" }}
+        visible={open}
         width={1024}
-       height={540}
+        height={500}
         onCancel={() => setOpen(false)}
         footer={[
           <Button key="back" onClick={() => setOpen(false)}>
             Cancel
           </Button>,
+          current > 0 && (
+            <Button
+              style={{
+                margin: '0 8px',
+              }}
+              onClick={() => prev()}
+            >
+              Previous
+            </Button>
+          ),
+          current < steps.length - 1 && (
+            <Button key="next" type="primary" onClick={next}>
+              Next
+            </Button>
+          ),
+
+          current === steps.length - 1 && (
+            <Button key="done" type="primary" onClick={() => {
+              printAndDownload();
+              setOpen(false);
+            }}
+            >
+              Done
+            </Button>
+          ),
+
         ]}
       >
-        <h3 style={{ textAlign: "center" }}>Confirm Order</h3>
-       <CardConfirmSteps/>
+        <Steps current={current}>
+          {steps.map(item => (
+            <Step key={item.title} title={item.title} />
+          ))}
+        </Steps>
+        <div className="steps-content" style={{height:'40vh'}}>{steps[current].content}</div>
       </Modal>
     </>
   )

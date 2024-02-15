@@ -67,7 +67,7 @@ const cartSlices = createSlice({
                 state.cartItems[itemIndex].cartQuantity -= 1;
                 notification.error({
                     message: 'DELETED',
-                    description: `Decreased${action.payload.name}cart Quntity.`,
+                    description: `Decreased ${action.payload.name}cart Quntity.`,
                     duration: 2,
                 });
             } else if (state.cartItems[itemIndex].cartQuantity === 1) {

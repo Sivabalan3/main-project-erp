@@ -24,9 +24,9 @@ const ResponsiveNav = () => {
   };
 
   return (
-   <>
-   	<div className="superNav border-bottom py-2 bg-light">
-      {/* <div className="container">
+    <>
+      <div className="superNav border-bottom py-2 bg-light">
+        {/* <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
             <div  className="me-3 border-0 bg-light">
@@ -41,68 +41,68 @@ const ResponsiveNav = () => {
           </div>
         </div>
       </div> */}
-    </div>
-    <nav className="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
-      <div className="container">
-        <div className="d-lg-none">
-        <UpgradeButton/>
-        </div>
-
-        <a className="navbar-brand" href="/"><i className="fa-solid fa-shop me-2"></i> <strong>SHOPING CART</strong></a>
-        <button onClick={showDrawer} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="/navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-    
-        <div className="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
-          <div className="input-group">
-            <span className="border-warning input-group-text bg-warning text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
-            <input type="text" className="form-control border-warning" style={{color:"/7a7a7a"}}/>
-            <button className="btn btn-warning text-white">Search</button>
+      </div>
+      <nav className="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
+        <div className="container">
+          <div className="d-lg-none">
+            <UpgradeButton />
           </div>
-        </div>
-        <div className={visible?" collapse navbar-collapse":"navbar-collapse"} id="navbarNavDropdown">
-          <div className="ms-auto d-none d-lg-block">
+
+          <a className="navbar-brand" href="/"><i className="fa-solid fa-shop me-2"></i> <strong>SHOPING CART</strong></a>
+          <button onClick={showDrawer} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="/navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
             <div className="input-group">
               <span className="border-warning input-group-text bg-warning text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
-              <input type="text" className="form-control border-warning" style={{color:"/7a7a7a"}}/>
+              <input type="text" className="form-control border-warning" style={{ color: "/7a7a7a" }} />
               <button className="btn btn-warning text-white">Search</button>
             </div>
           </div>
-          <ul className="navbar-nav ms-auto ">
-            <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase active" aria-current="page" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="/">Products</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="/">Catalog</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="/">About</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="/">Services</a>
-            </li>
-          </ul>
-          <ul className="navbar-nav ms-auto ">
-            <li className="nav-item d-none d-lg-block">
-              <Link  className="nav-link mx-2 text-uppercase" to="/addtocart"><UpgradeButton/></ Link>
-            </li>
-            <li className="nav-item sm-none">
-              <div className="nav-link mx-2 text-uppercase"><SelectLanguage/></div>
-            </li>
-            <li className="nav-item sm-none mt-2">
-              <Link className="nav-link mx-2 text-uppercase" to="/login">Login</Link>
-            </li>
-            <li className="nav-item sm-none mt-2">
-              <Link className="nav-link mx-2 text-uppercase" to="/register">Register</Link>
-            </li>
-          </ul>
+          <div className={visible ? " collapse navbar-collapse" : "navbar-collapse"} id="navbarNavDropdown">
+            <div className="ms-auto d-none d-lg-block">
+              <div className="input-group">
+                <span className="border-warning input-group-text bg-warning text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" className="form-control border-warning" style={{ color: "/7a7a7a" }} />
+                <button className="btn btn-warning text-white">Search</button>
+              </div>
+            </div>
+            <ul className="navbar-nav ms-auto ">
+              <li className="nav-item">
+                <Link className="nav-link mx-2 text-uppercase active" aria-current="page" to="/">Home</Link>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link mx-2 text-uppercase" href="/">Products</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link mx-2 text-uppercase" href="/">Catalog</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link mx-2 text-uppercase" href="/">About</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link mx-2 text-uppercase" href="/">Services</a>
+              </li>
+            </ul>
+            <ul className="navbar-nav ms-auto ">
+              <li className="nav-item d-none d-lg-block">
+                <Link className="nav-link mx-2 text-uppercase" to="/addtocart"><UpgradeButton /></ Link>
+              </li>
+              <li className="nav-item sm-none">
+                <div className="nav-link mx-2 text-uppercase"><SelectLanguage /></div>
+              </li>
+              <li className="nav-item sm-none mt-2">
+                <Link className="nav-link mx-2 text-uppercase" to="/login">Login</Link>
+              </li>
+              <li className="nav-item sm-none mt-2">
+                <Link className="nav-link mx-2 text-uppercase" to="/register">Register</Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-   </>
+      </nav>
+    </>
   );
 };
 
