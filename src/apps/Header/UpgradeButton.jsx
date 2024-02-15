@@ -7,7 +7,6 @@ import { RocketOutlined,ShoppingCartOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import useLanguage from '@/locale/useLanguage';
 
-
 export default function UpgradeButton() {
   const { cartTotalQuantity ,cart} = useSelector((state) => state.cart);
   const dispatch=useDispatch()
@@ -16,7 +15,7 @@ export default function UpgradeButton() {
   const Content = () => {
     return (
       <>
-        {/* <p>{translate('Do you need help on customize of this app')}</p> */}
+        <p>{translate('Do you need help on customize of this app')}</p>
        <Link to="/addTocart"> <Button
           type="primary"
           // onClick={() => {
@@ -33,8 +32,8 @@ export default function UpgradeButton() {
     // <Popover content={<Content />} title={translate('Customize this application')} trigger="click">
     <Link to="/addTocart">
       <Badge count={cartTotalQuantity} size="medium" >
-        {/* <Avatar
-          icon={<RocketOutlined />}
+        <Avatar
+          icon={<ShoppingCartOutlined />}
           style={{
             color: '#f56a00',
             backgroundColor: '#FFF',
@@ -42,12 +41,12 @@ export default function UpgradeButton() {
             marginTop: '5px',
             cursor: 'pointer',
           }}
-        /> */}
-        <ShoppingCartOutlined style={{ fontSize: '26px',cursor: 'pointer', marginTop: '5px', backgroundColor: '#FFF',
-            float: 'right',}} />
+        />
+        {/* <ShoppingCartOutlined style={{ fontSize: '26px',cursor: 'pointer', marginTop: '5px', backgroundColor: '#FFF',
+            float: 'right',}} /> */}
       </Badge>
       </Link>
-    // </Popover>
+    //  </Popover>
   );
 }
 

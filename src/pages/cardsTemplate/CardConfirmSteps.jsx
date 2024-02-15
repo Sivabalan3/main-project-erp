@@ -7,7 +7,7 @@ import { printAndDownload } from './DownloadReceipt';
 const steps = [
   {
     title: 'Shipping Address',
-    content: <CardOrder/>
+    content: <CardOrder />
   },
   {
     title: 'Payment',
@@ -15,10 +15,10 @@ const steps = [
   },
   {
     title: 'Download Receipt',
-    content: <DownloadReceipt/>,
+    content: <DownloadReceipt />,
   },
 ];
-const  CardConfirmSteps = () => {
+const CardConfirmSteps = () => {
   const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
   const next = () => {
@@ -39,12 +39,13 @@ const  CardConfirmSteps = () => {
     borderRadius: token.borderRadiusLG,
     border: `1px dashed ${token.colorBorder}`,
     marginTop: 16,
-    height:"50vh",
-    overflow:'scroll'
-    
+    height: "40vh",
+    overflow: 'scroll'
+
   };
   return (
     <>
+      <h3 style={{ textAlign: "center" }}>Confirm Order</h3>
       <Steps current={current} items={items} />
       <div style={contentStyle}>{steps[current].content}</div>
       <div

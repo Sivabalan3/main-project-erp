@@ -1,11 +1,10 @@
-// Import the necessary modules
+
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { notification } from "antd";
 
-// Define the initial state of the data
 const initialState = {
-  orderid:"",
+  orderid: "",
   name: "",
   phone1: "",
   phone2: "",
@@ -13,17 +12,18 @@ const initialState = {
   gmail: "",
   paymentoption: "",
   amount: "",
+  data: null,
   status: "idle",
   error: null,
 };
 
-// Create an async thunk to post the data to the server
+
 export const postData = createAsyncThunk(
   "/userorder/postData",
   async (data, { rejectWithValue }) => {
     try {
-      // Use axios to send a post request with the data
       const response = await axios.post("http://localhost:8888/userorder", data);
+
       // Return the response data
       console.log("axiosdata", data);
       return response.data;
@@ -34,50 +34,37 @@ export const postData = createAsyncThunk(
   }
 );
 
-
-// Create an async thunk to get the data from the server
 export const getData = createAsyncThunk(
-  "data/getData",
+  "userorder/getData",
   async (_, { rejectWithValue }) => {
     try {
-      // Use axios to send a get request
-      const response = await axios.get("/api/data");
-      // Return the response data
+      const response = await axios.get("http://localhost:8888/userorder/");
       return response.data;
     } catch (error) {
-      // Handle any errors and return a custom error message
       return rejectWithValue(error.message);
     }
   }
 );
-// Create an async thunk to update the data on the server
 export const updateData = createAsyncThunk(
   "data/updateData",
   async (data, { rejectWithValue }) => {
     try {
-      // Use axios to send a patch request with the data
       const response = await axios.patch(`/api/data/${data.id}`, data);
-      // Return the response data
       console.log("axiosdata", data);
       return response.data;
     } catch (error) {
-      // Handle any errors and return a custom error message
       return rejectWithValue(error.message);
     }
   }
 );
-// Create an async thunk to delete the data from the server
 export const deleteData = createAsyncThunk(
   "data/deleteData",
   async (id, { rejectWithValue }) => {
     try {
-      // Use axios to send a delete request with the id
       const response = await axios.delete(`/api/data/${id}`);
-      // Return the response data
       console.log("axiosdata", id);
       return response.data;
     } catch (error) {
-      // Handle any errors and return a custom error message
       return rejectWithValue(error.message);
     }
   }
@@ -87,7 +74,7 @@ export const deleteData = createAsyncThunk(
 export const userorderformdataSlice = createSlice({
   name: "userorderformdata",
   initialState,
-  reducers:{
+  reducers: {
     // PostUserOrderData: (state, action) => {
     //   // Update the state with the action payload
     //   state.orderid=action.payload.orderid;
@@ -101,7 +88,6 @@ export const userorderformdataSlice = createSlice({
     // }
   },
 
-  // Add reducers for the async thunks
   extraReducers: (builder) => {
     // Handle the pending state of postData
     builder
@@ -113,7 +99,7 @@ export const userorderformdataSlice = createSlice({
       .addCase(postData.fulfilled, (state, action) => {
         state.status = "succeeded";
         // Update the state with the response data
-        state.orderid=action.payload.orderid;
+        state.orderid = action.payload.orderid;
         state.name = action.payload.name;
         state.phone1 = action.payload.phone1;
         state.phone2 = action.payload.phone2;
@@ -125,7 +111,7 @@ export const userorderformdataSlice = createSlice({
         notification.success({
           message: "Shipping information Saved successfully",
           description: `Your Order Is Created`,
-          duration:5
+          duration: 5
         });
       })
       // Handle the rejected state of postData
@@ -211,6 +197,7 @@ export const userorderformdataSlice = createSlice({
 });
 
 // Export the data slice reducer
-export const {PostUserOrderData} =userorderformdataSlice.actions
+export const selectuserorderformdata = (state) => state.userorderformdata;
+export const { PostUserOrderData } = userorderformdataSlice.actions
 export default userorderformdataSlice.reducer;
 
