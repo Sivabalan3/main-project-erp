@@ -1,28 +1,46 @@
 export const fields = {
+  orderid: {
+    type: "number",
+    required: true
+  },
   firstname: {
     type: 'string',
     required: true,
   },
-  lastname: {
-    type: 'string',
-    required: true,
+  
+  // lastname: {
+  //   type: 'string',
+  //   required: true,
+  // },
+  // company: {
+  //   type: 'search',
+  //   entity: 'company',
+  //   renderAsTag: true,
+  //   displayLabels: ['name'],
+  //   searchFields: 'name',
+  //   dataIndex: ['company', 'name'],
+  // },
+  totalamount:{
+type:'totalamount'
   },
-  company: {
-    type: 'search',
-    entity: 'company',
-    renderAsTag: true,
-    displayLabels: ['name'],
-    searchFields: 'name',
-    dataIndex: ['company', 'name'],
+  // country: {
+  //   type: 'country',
+  // },
+  phone1: {
+    type: 'phone1',
   },
-  country: {
-    type: 'country',
-  },
-  phone: {
-    type: 'phone',
+  phone2: {
+    type: 'phone2',
   },
   email: {
     type: 'email',
+  },
+  paymentoption:{
+    type:'paymentoption'
+  },
+  orderstatus:{
+    type:'orderstatus',
+  
   },
   // bio: {
   //   type: 'string',
@@ -73,9 +91,9 @@ export const fields = {
   // bankRouting: {
   //   type: 'string',
   // },
-  // address: {
-  //   type: 'string',
-  // },
+  address: {
+    type: 'string',
+  },
   // city: {
   //   type: 'string',
   // },

@@ -11,7 +11,7 @@ import { generate as uniqueId } from 'shortid';
 import { countryList } from '@/utils/countryList';
 
 export default function DynamicForm({ fields, isUpdateForm = false }) {
-  const [feedback, setFeedback] = useState();
+  const [feedback, setFeedback] = useState(); 
   return (
     <>
       {Object.keys(fields).map((key) => {
@@ -34,6 +34,14 @@ export default function DynamicForm({ fields, isUpdateForm = false }) {
 }
 
 function FormElement({ field, setFeedback }) {
+  const paymentoption=[{label:'Cash On Delivery',value:"cash",color: 'lime' },
+{label:"Online Pay",value:'online',color: 'purple'}
+]
+const orderstatus=[
+  {label:'Pending',value:'pending',color: 'magenta'},
+  {label:'Shipping',value:'shipping',color: 'blue'},
+  {label:'Deliverd',value:'deliverd',color: 'green'}
+]
   const translate = useLanguage();
   const money = useMoney();
   const { dateFormat } = useDate();
@@ -42,7 +50,7 @@ function FormElement({ field, setFeedback }) {
 
   const compunedComponent = {
     string: <Input autoComplete="off" />,
-    url: <Input addonBefore="http://" autoComplete="off" placeholder="www.website.com" />,
+    // url: <Input addonBefore="http://" autoComplete="off" placeholder="www.website.com" />,
     textarea: <TextArea rows={4} />,
     email: <Input autoComplete="off" placeholder="email@gmail.com" />,
     number: <InputNumber style={{ width: '100%' }} />,
@@ -153,6 +161,68 @@ function FormElement({ field, setFeedback }) {
           </Select.Option>
         ))}
       </Select>
+    ),
+    paymentoption:(
+      <Select
+      showSearch
+      defaultValue={field.defaultValue}
+        optionFilterProp="children"
+        filterOption={(input, option) =>
+          (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+        }
+        filterSort={(optionA, optionB) =>
+          (optionA?.label ?? '').toLowerCase().startsWith((optionB?.label ?? '').toLowerCase())
+        }
+        style={{
+          width: '100%',
+        }}
+      >
+ {paymentoption.map((paymentoption) => (
+          <Select.Option
+            key={paymentoption.value}
+            value={paymentoption.value}
+            label={translate(paymentoption.label)}
+          >
+              <Tag bordered={false} color={paymentoption.color}>
+           {paymentoption.value}
+           </Tag>
+          </Select.Option>
+        ))}
+
+      </Select>
+
+      
+    ),
+    orderstatus:(
+      <Select
+      // showSearch
+      defaultValue={field.defaultValue}
+        optionFilterProp="children"
+        filterOption={(input, option) =>
+          (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+        }
+        filterSort={(optionA, optionB) =>
+          (optionA?.label ?? '').toLowerCase().startsWith((optionB?.label ?? '').toLowerCase())
+        }
+        style={{
+          width: '100%',
+        }}
+      >
+ {orderstatus.map((status) => (
+          <Select.Option
+            key={status.value}
+            value={status.value}
+            label={translate(status.label)}
+          >
+             <Tag bordered={false} color={status.color}>
+           {status.value}
+           </Tag>
+          </Select.Option>
+        ))}
+
+      </Select>
+
+      
     ),
     country: (
       <Select

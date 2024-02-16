@@ -25,7 +25,7 @@ const ResponsiveNav = () => {
 
   return (
     <>
-      <div className="superNav border-bottom py-2 bg-light">
+      <div className="superNav  bg-light">
         {/* <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
