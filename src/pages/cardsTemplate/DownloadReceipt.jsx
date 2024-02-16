@@ -101,7 +101,6 @@ const DownloadReceipt = () => {
       key: 'paymentoption',
     },
   ];
-
   const list = [
     <div style={{ display: 'flex', flexDirection: "column", alignItems: "end", justifyContent: "start", width: "100%" }}>
       <p>Sub Total : <FaIndianRupeeSign />
@@ -114,7 +113,6 @@ const DownloadReceipt = () => {
 
     </div>
   ];
-
   return (
     <>
       <div style={{ overflow: "scroll", height: "100%" }} id='table'>
@@ -163,7 +161,6 @@ export const printAndDownload = () => {
       scale: 0.5,
       width: 120
     },
-
     callback: function (pdf) {
       pdf.save('Order.pdf');
     }

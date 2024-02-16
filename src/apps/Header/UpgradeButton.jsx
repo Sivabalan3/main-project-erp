@@ -6,8 +6,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { RocketOutlined,ShoppingCartOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import useLanguage from '@/locale/useLanguage';
+import { selectAuth } from '@/redux/auth/selectors';
 
 export default function UpgradeButton() {
+  const { isLoggedIn } = useSelector(selectAuth);
   const { cartTotalQuantity ,cart} = useSelector((state) => state.cart);
   const dispatch=useDispatch()
   const translate = useLanguage();
@@ -30,7 +32,7 @@ export default function UpgradeButton() {
 
   return (
     // <Popover content={<Content />} title={translate('Customize this application')} trigger="click">
-    <Link to="/addTocart">
+    <Link to={isLoggedIn?"/addTocart":"/login"}>
       <Badge count={cartTotalQuantity} size="medium" >
         <Avatar
           icon={<ShoppingCartOutlined />}

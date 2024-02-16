@@ -154,7 +154,7 @@ const AddTocart = () => {
   ];
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="cart-container">
         <h2>{translate('Shopping Cart')}</h2>
         {cart.cartItems.length === 0 ? (
@@ -271,6 +271,7 @@ const AddTocart = () => {
           </div>
         )}
       </div>
+      <h1></h1>
       <Modal
         title="Shopping Cart"
         centered
@@ -280,9 +281,9 @@ const AddTocart = () => {
         height={500}
         onCancel={() => setOpen(false)}
         footer={[
-          <Button key="back" onClick={() => setOpen(false)}>
-            Cancel
-          </Button>,
+          // <Button key="back" onClick={() => setOpen(false)}>
+          //   Cancel
+          // </Button>,
           current > 0 && (
             <Button
               style={{
@@ -293,7 +294,7 @@ const AddTocart = () => {
               Previous
             </Button>
           ),
-          current < steps.length - 1 && (
+          current >= steps.length - 2 && (
             <Button key="next" type="primary" onClick={next}>
               Next
             </Button>
@@ -305,7 +306,7 @@ const AddTocart = () => {
               setOpen(false);
             }}
             >
-              Done
+              Finish
             </Button>
           ),
 
@@ -316,7 +317,7 @@ const AddTocart = () => {
             <Step key={item.title} title={item.title} />
           ))}
         </Steps>
-        <div className="steps-content" style={{height:'40vh'}}>{steps[current].content}</div>
+        <div className="steps-content" style={{height:'40vh',overflow:'scroll'}}>{steps[current].content}</div>
       </Modal>
     </>
   )

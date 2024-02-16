@@ -43,17 +43,25 @@ const ExpenseCategory = lazy(() => import('@/pages/ExpenseCategory'));
 const Expense = lazy(() => import('@/pages/Expense'));
 const ProductCategory = lazy(() => import('@/pages/ProductCategory'));
 const Product = lazy(() => import('@/pages/Product'));
-
+const AddTocart=lazy(()=>import('@/pages/cardsTemplate/AddTocart'))
 const People = lazy(() => import('@/pages/People'));
 const Company = lazy(() => import('@/pages/Company'));
-
+const OrderTable=lazy(()=>import('@/pages/cardsTemplate/OrderTable'))
 const About = lazy(() => import('@/pages/About'));
 
 export default function AppRouter() {
   let element = useRoutes([
     {
+      path:'/ordertable',
+      element:<OrderTable/>
+    },
+    {
+      path:'/addTocart',
+      element:<AddTocart/>
+    },
+    {
       path: '/login',
-      element: <Navigate to="/" />,
+      element: <Navigate to="/addTocart" />,
     },
     {
       path: '/verify/*',

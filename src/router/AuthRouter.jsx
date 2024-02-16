@@ -13,7 +13,7 @@ export default function AuthRouter() {
   return (
     <Routes>
       <Route element={<Card />} path="/" exact={true} />
-      <Route element={<AddTocart />} path="/addTocart" />
+      {/* <Route element={<AddTocart />} path="/addTocart" /> */}
       {/* <Route element={<Register />} path="/" /> */}
       <Route element={<Login />} path="/login" />
       <Route element={<Navigate to="/login" replace />} path="/logout" />

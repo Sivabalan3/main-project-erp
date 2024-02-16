@@ -63,7 +63,7 @@ function Sidebar({ collapsible, isMobile = false }) {
     {
       key: 'people',
       icon: <UserOutlined />,
-      label: <Link to={'/people'}>{translate('people')}</Link>,
+      label: <Link to={'/people'}>{translate('Order List')}</Link>,
     },
     {
       key: 'company',
@@ -81,7 +81,7 @@ function Sidebar({ collapsible, isMobile = false }) {
       label: <Link to={'/offer'}>{translate('offer')}</Link>,
     },
 
-    { key: 'order', icon: <ShopOutlined />, label: <Link to={'/order'}>{translate('Order')}</Link>},
+    // { key: 'order', icon: <ShopOutlined />, label: <Link to={'/ordertable'}>{translate('Order')}</Link>},
     // { key: 'inventory', icon: <InboxOutlined />, label: <Link to={'/'}>Lead</Link> Inventory },
 
     {
