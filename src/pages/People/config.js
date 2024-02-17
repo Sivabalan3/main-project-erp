@@ -7,25 +7,9 @@ export const fields = {
     type: 'string',
     required: true,
   },
-  
-  // lastname: {
-  //   type: 'string',
-  //   required: true,
-  // },
-  // company: {
-  //   type: 'search',
-  //   entity: 'company',
-  //   renderAsTag: true,
-  //   displayLabels: ['name'],
-  //   searchFields: 'name',
-  //   dataIndex: ['company', 'name'],
-  // },
   totalamount:{
-type:'totalamount'
+    type:'totalamount'
   },
-  // country: {
-  //   type: 'country',
-  // },
   phone1: {
     type: 'phone1',
   },
@@ -40,8 +24,25 @@ type:'totalamount'
   },
   orderstatus:{
     type:'orderstatus',
-  
   },
+  address: {
+    type: 'string',
+  },
+   // lastname: {
+  //   type: 'string',
+  //   required: true,
+  // },
+  // company: {
+  //   type: 'search',
+  //   entity: 'company',
+  //   renderAsTag: true,
+  //   displayLabels: ['name'],
+  //   searchFields: 'name',
+  //   dataIndex: ['company', 'name'],
+  // },
+    // country: {
+  //   type: 'country',
+  // },
   // bio: {
   //   type: 'string',
   // },
@@ -91,9 +92,7 @@ type:'totalamount'
   // bankRouting: {
   //   type: 'string',
   // },
-  address: {
-    type: 'string',
-  },
+
   // city: {
   //   type: 'string',
   // },

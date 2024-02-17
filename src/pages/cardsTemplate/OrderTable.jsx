@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { Table } from 'antd';
+import { useSelector } from 'react-redux';
+import { LoadingOutlined, CheckCircleOutlined, SyncOutlined, ClockCircleOutlined } from '@ant-design/icons';
+import { Table, Tag, Spin, } from 'antd';
 import { ErpLayout } from '@/layout';
 function OrderTable() {
+    const cart = useSelector((state) => state.cart);
     const [datas, setDatas] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = axios.get('http://localhost:8888/userorder/')
+                const response = axios.get('http://localhost:8888/userorders/')
                 setDatas((await response).data)
                 setLoading(false)
             } catch (error) {
@@ -18,35 +21,6 @@ function OrderTable() {
         }
         fetchData()
     }, [])
-    const updateOrder = async (id) => {
-        // Get the current data for the order
-        const currentOrder = datas.find(data => data.orderid === id);
-        
-        // Create a copy of the current data to serve as the updated order
-        let updatedOrder = { ...currentOrder };
-        
-        // TODO: Open a form that allows the user to input the new data for the order
-        // The form should update the `updatedOrder` object
-        
-        try {
-            await axios.put(`http://localhost:8888/userorder/${id}`, updatedOrder);
-            // Refresh the data
-            fetchData();
-        } catch (error) {
-            console.error('Error updating order: ', error);
-        }
-    };
-    
-
-    const deleteOrder = async (id) => {
-        try {
-            await axios.delete(`http://localhost:8888/userorder/${id}`);
-            // Refresh the data
-            fetchData();
-        } catch (error) {
-            console.error('Error deleting order: ', error);
-        }
-    };
 
     const customercolumns = [
         {
@@ -57,8 +31,8 @@ function OrderTable() {
         },
         {
             title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
+            dataIndex: 'firstname',
+            key: 'firstname',
 
         },
         {
@@ -73,8 +47,8 @@ function OrderTable() {
         },
         {
             title: 'Gmail',
-            dataIndex: 'gmail',
-            key: 'gmail',
+            dataIndex: 'email',
+            key: 'email',
         },
         {
             title: 'Address',
@@ -88,23 +62,34 @@ function OrderTable() {
         },
         {
             title: 'Status',
-            // dataIndex: 'paymentoption',
-            key: 'Status',
-        },
-        {
-            title: 'Update',
-            key: 'update',
-            render: (text, record) => (
-                <button onClick={() => updateOrder(record.orderid)}>Update</button>
-            ),
-        },
-        {
-            title: 'Delete',
-            key: 'delete',
-            render: (text, record) => (
-                <button onClick={() => deleteOrder(record.orderid)}>Delete</button>
-            ),
-        },
+            dataIndex: 'orderstatus',
+            key: 'orderstatus',
+            render: (text, record) => {
+                if (text === 'pending') {
+                    return (
+
+                        <Tag icon={<SyncOutlined spin />} color="processing" style={{ color: text === 'pending' ? 'red' : text === 'deliverd' ? 'green' : 'blue' }}>
+                            {text}
+                        </Tag>
+                    )
+                } else if (text === 'deliverd') {
+                    return (
+
+                        <Tag icon={<CheckCircleOutlined />} color="success" style={{ color: text === 'deliverd' ? 'green' : 'blue' }}>
+                            {text}
+                        </Tag>
+                    );
+                } else {
+                    return (
+                        <Tag icon={<ClockCircleOutlined />} color="blue" style={{ color: text === 'shipping' ? 'blue' : 'red' }}>
+                            {text}
+                        </Tag>
+                    )
+                }
+            },
+        }
+
+
     ];
     return (
         <>

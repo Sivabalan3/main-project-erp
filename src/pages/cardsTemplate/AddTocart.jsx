@@ -106,6 +106,7 @@ import DownloadReceipt from './DownloadReceipt';
 import { printAndDownload } from './DownloadReceipt';
 import StripeForm from './StripeForm';
 import StripeForms from './StripeForm';
+import OrderTable from './OrderTable';
 
 const { Step } = Steps;
 
@@ -166,7 +167,7 @@ const AddTocart = () => {
 
             />
             <div className="start-shopping">
-              <Link to="/">
+              <Link to="/logout">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -270,6 +271,8 @@ const AddTocart = () => {
             </div>
           </div>
         )}
+        <h3>Shipping Information</h3>
+        <OrderTable/>
       </div>
       <h1></h1>
       <Modal
@@ -317,7 +320,7 @@ const AddTocart = () => {
             <Step key={item.title} title={item.title} />
           ))}
         </Steps>
-        <div className="steps-content" style={{height:'40vh',overflow:'scroll'}}>{steps[current].content}</div>
+        <div className="steps-content" style={{height:'50vh',overflow:'scroll'}}>{steps[current].content}</div>
       </Modal>
     </>
   )

@@ -63,7 +63,8 @@ export default function Payment() {
   };
   const config = {
     ...configPage,
-    disableAdd: false,
+    //Button for add new payment
+    disableAdd: true,
     dataTableColumns,
     searchConfig,
     deleteModalLabels,

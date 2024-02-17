@@ -18,11 +18,11 @@ export default function Employee() {
   const dataTableColumns = [
     {
       title: translate('first name'),
-      dataIndex: 'name',
+      dataIndex: 'firstname',
     },
     {
       title: translate('last name'),
-      dataIndex: 'surname',
+      dataIndex: 'lastname',
     },
     {
       title: translate('Birthday'),
@@ -52,11 +52,11 @@ export default function Employee() {
   const readColumns = [
     {
       title: translate('first name'),
-      dataIndex: 'name',
+      dataIndex: 'firstname',
     },
     {
       title: translate('last name'),
-      dataIndex: 'surname',
+      dataIndex: 'lastname',
     },
     {
       title: translate('Birthday'),
