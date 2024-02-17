@@ -80,7 +80,7 @@ export default function AppRouter() {
       element: <About />,
     },
     {
-      path: '/',
+      path: '/dashboard',
       element: <Dashboard />,
     },
     {

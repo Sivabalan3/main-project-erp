@@ -213,6 +213,7 @@ const orderstatus=[
             key={status.value}
             value={status.value}
             label={translate(status.label)}
+            className={status.color} 
           >
              <Tag bordered={false} color={status.color}>
            {status.value}

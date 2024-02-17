@@ -5,14 +5,15 @@ import { useDate } from '@/settings';
 
 import useLanguage from '@/locale/useLanguage';
 
-export default function EmployeeForm() {
+export default function EmployeeForm({ isUpdateForm = false }) {
   const translate = useLanguage();
   const { dateFormat } = useDate();
 
   return (
     <>
+    {}
       <Form.Item
-        name="name"
+        name="firstname"
         label={translate('first name')}
         rules={[
           {
@@ -23,8 +24,19 @@ export default function EmployeeForm() {
         <Input />
       </Form.Item>
       <Form.Item
-        name="surname"
+        name="lastname"
         label={translate('last name')}
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        name="idCard"
+        label={translate('Id Card')}
         rules={[
           {
             required: true,

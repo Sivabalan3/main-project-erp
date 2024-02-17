@@ -13,7 +13,7 @@ const DownloadReceipt = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8888/userorder/');
+        const response = await axios.get('http://localhost:8888/userorders/');
         setDatas(response.data);
         setLoading(false);
       } catch (error) {
@@ -71,8 +71,8 @@ const DownloadReceipt = () => {
     },
     {
       title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: 'firstname',
+      key: 'firstname',
 
     },
     {
@@ -87,8 +87,8 @@ const DownloadReceipt = () => {
     },
     {
       title: 'Gmail',
-      dataIndex: 'gmail',
-      key: 'gmail',
+      dataIndex: 'email',
+      key: 'email',
     },
     {
       title: 'Address',
