@@ -28,21 +28,21 @@ export const fields = {
   address: {
     type: 'string',
   },
-   // lastname: {
-  //   type: 'string',
-  //   required: true,
-  // },
-  // company: {
-  //   type: 'search',
-  //   entity: 'company',
-  //   renderAsTag: true,
-  //   displayLabels: ['name'],
-  //   searchFields: 'name',
-  //   dataIndex: ['company', 'name'],
-  // },
-    // country: {
-  //   type: 'country',
-  // },
+   lastname: {
+    type: 'string',
+    required: true,
+  },
+  company: {
+    type: 'search',
+    entity: 'company',
+    renderAsTag: true,
+    displayLabels: ['name'],
+    searchFields: 'name',
+    dataIndex: ['company', 'name'],
+  },
+    country: {
+    type: 'country',
+  },
   // bio: {
   //   type: 'string',
   // },

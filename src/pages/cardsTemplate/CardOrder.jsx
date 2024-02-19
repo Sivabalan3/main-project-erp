@@ -109,17 +109,30 @@ const CardOrder = ({ setCurrent, current,config, formElements, withUpload = fals
           >
             <Input suffix={<DollarOutlined />} disabled={true} placeholder="Enter Amount" />
           </Form.Item> 
+          <Form.Item
+            label="Order Status"
+            name="orderstatus"
+            // rules={[{ required: true, message: "Please select order Status" }]}
+          >
+            <Select defaultValue="Pending" options={orderstatus} value={orderstatus} disabled/>
+          </Form.Item>
         </div>
 
         <div style={{ flex: '50%', padding: '10px' }}>
           <Form.Item
-            label="Name"
+            label="First Name"
             name="firstname"
-            rules={[{ required: true, message: 'Please input your Name' }]}
+            rules={[{ required: true, message: 'Please input your First Name' }]}
           >
-            <Input placeholder="Enter Name" />
+            <Input placeholder="Enter First Name" />
           </Form.Item>
-
+          <Form.Item
+            label="Last Name"
+            name="lastname"
+            rules={[{ required: true, message: 'Please input your Last Name' }]}
+          >
+            <Input placeholder="Enter Last Name" />
+          </Form.Item>
           <Form.Item
             label="Phone 2"
             name="phone2"
@@ -143,13 +156,7 @@ const CardOrder = ({ setCurrent, current,config, formElements, withUpload = fals
           >
             <Select defaultValue="Online Mode" options={paymentOptions} value={paymentOptions} />
           </Form.Item>
-          <Form.Item
-            label="Order Status"
-            name="orderstatus"
-            // rules={[{ required: true, message: "Please select order Status" }]}
-          >
-            <Select defaultValue="Pending" options={orderstatus} value={orderstatus} disabled/>
-          </Form.Item>
+          
         </div>
       </div>
 

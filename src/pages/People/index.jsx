@@ -1,10 +1,10 @@
 import CrudModule from '@/modules/CrudModule/CrudModule';
 import DynamicForm from '@/forms/DynamicForm';
+import { Tag } from 'antd';
 import { fields } from './config';
 import { LoadingOutlined, CheckCircleOutlined, SyncOutlined, ClockCircleOutlined,DollarOutlined } from '@ant-design/icons';
 
 import useLanguage from '@/locale/useLanguage';
-import { Tag } from 'antd';
 
 export default function People() {
   const translate = useLanguage();
@@ -112,9 +112,13 @@ export default function People() {
 
     },
     {
-      title: translate('phone2'),
-      dataIndex: 'phone2',
+      title: translate('Email'),
+      dataIndex: 'email',
     },
+    // {
+    //   title: translate('phone2'),
+    //   dataIndex: 'phone2',
+    // },
     {
       title: translate('address'),
       dataIndex: 'address',
@@ -124,14 +128,11 @@ export default function People() {
       dataIndex: 'paymentoption',
     },
     {
-      title: translate('OrderStatus'),
+      title: translate('Status'),
       dataIndex: 'orderstatus',
     },
 
-    {
-      title: translate('Email'),
-      dataIndex: 'email',
-    },
+   
   ];
   const Labels = {
     PANEL_TITLE: translate('order'),

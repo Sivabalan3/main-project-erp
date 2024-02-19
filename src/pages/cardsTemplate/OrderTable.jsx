@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { LoadingOutlined, CheckCircleOutlined, SyncOutlined, ClockCircleOutlined } from '@ant-design/icons';
+import { LoadingOutlined, CheckCircleOutlined, SyncOutlined, ClockCircleOutlined,DollarOutlined } from '@ant-design/icons';
 import { Table, Tag, Spin, } from 'antd';
 import { ErpLayout } from '@/layout';
 function OrderTable() {
@@ -59,6 +59,22 @@ function OrderTable() {
             title: 'Payment Mode',
             dataIndex: 'paymentoption',
             key: 'paymentoption',
+            render: (text, record) => {
+                if(text==='cash'){
+                 return(
+                   <Tag  color='orange' icon={<DollarOutlined />}>
+                       {text}
+                     </Tag>
+                 )
+                }
+                else {
+                 return (
+                   <Tag color="cyan" >
+                     {text}
+                   </Tag>
+                 )
+               }
+               },
         },
         {
             title: 'Status',

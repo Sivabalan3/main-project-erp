@@ -5,7 +5,7 @@ const FooterContainer =()=>{
 <>
 <footer className="footer">
   <div className="footer__addr">
-    <h1 className="footer__logo">Natural Soap & Oil</h1>
+    <h1 className="footer__logo">Shopping Cart</h1>
         
     <h2>Contact</h2>
     
