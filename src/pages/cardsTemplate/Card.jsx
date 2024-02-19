@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Row, Col, Typography, Divider, notification, Space, Skeleton } from 'antd';
+import { Card, Button, Row, Col, Rate, Skeleton, Image } from 'antd';
 import useLanguage from '@/locale/useLanguage';
 import NavBar from '@/apps/Header/Navbar';
 import Swiper from '@/pages/cardsTemplate/Swiper';
@@ -59,12 +59,12 @@ const card = () => {
                 <Skeleton loading={loading} avatar active> <Card
                   key={product.id}
                   hoverable
-                  cover={<img alt={product.name} src={product.img} />}
-                >
+                  cover={<Image src={product.img}  placeholder={ <Image preview={false} src={product} /> }/>}
+>
                   <h6 className='price'>{translate('Price')}: ₹ {product.price}</h6>
                   <h6 style={{ color: "#9834eb" }}>{translate(product.name)}</h6>
                   <Meta description={translate("soap_contents")} />
-
+                  <Rate style={{ padding: "15px 0px 0px 0px", color: "burlywood" }} allowHalf value={product.rate} />
                   <Button type="primary" block typeof='button' style={button} onClick={() => handleADDToCart(product)}>
                     {translate('buy')}  +
                   </Button>
@@ -82,10 +82,11 @@ const card = () => {
                 <Skeleton loading={loading} avatar active> <Card
                   key={product.id}
                   hoverable
-                  cover={<img alt={product.name} src={product.img} />}>
+                  cover={<Image  src={product.img} placeholder={ <Image preview={false}  src={product} /> }/>}>
                   <h6 className='price'>{translate('Price')}: ₹ {product.price}</h6>
                   <h6 style={{ color: "#9834eb" }}>{translate(product.name)}</h6>
                   <Meta description={translate("soap_contents")} />
+                  <Rate style={{ padding: "15px 0px 0px 0px", color: "burlywood" }} allowHalf value={product.rate} />
                   <Button type="primary" block typeof='button' style={button} onClick={() => handleADDToCart(product)}>
                     {translate('buy')}  +
                   </Button>
