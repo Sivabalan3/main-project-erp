@@ -13,11 +13,11 @@ export const fields = {
     type: 'string',
     disableForForm: true,
   },
-  country: {
-    type: 'country',
-    // color: 'red',
-    disableForForm: true,
-  },
+  // country: {
+  //   type: 'country',
+  //   // color: 'red',
+  //   disableForForm: true,
+  // },
   phone: {
     type: 'phone',
     disableForForm: true,

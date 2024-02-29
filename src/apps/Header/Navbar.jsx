@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Layout, Input } from "antd";
-
+import './navbar.css'
 import {
 RiseOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SelectLanguage from "@/components/SelectLanguage";
 import UpgradeButton from "./UpgradeButton";
 
@@ -63,20 +63,20 @@ const ResponsiveNav = () => {
               </div>
             </div>
             <ul className="navbar-nav ms-auto ">
-              <li className="nav-item">
-                <Link className="nav-link mx-2 text-uppercase active" aria-current="page" to="/">Home</Link>
+              <li className="nav-item active">
+                <NavLink className="nav-link  mx-2 text-uppercase "  to="/">Home</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link mx-2 text-uppercase" href="/">Products</a>
+                <a className="nav-link mx-2 text-uppercase" href="/reg">Products</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link mx-2 text-uppercase" href="/">Catalog</a>
+                <a className="nav-link mx-2 text-uppercase" href="#">Catalog</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link mx-2 text-uppercase" href="/">About</a>
+                <a className="nav-link mx-2 text-uppercase" href="#">About</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link mx-2 text-uppercase" href="/">Services</a>
+                <a className="nav-link mx-2 text-uppercase" href="#">Services</a>
               </li>
             </ul>
             <ul className="navbar-nav ms-auto ">
